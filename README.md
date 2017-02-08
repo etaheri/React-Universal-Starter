@@ -23,18 +23,18 @@ npm run build
 
 ### Development [`develop`](../../tree/develop)
 
-- **URL** - http://dev.fe.october.sdny.in/
-- **CMS** - http://dev.october.sdny.in/admin
+- **URL** - 
+- **CMS** - 
 
 
 ### Staging [`develop`](../../tree/master)
 
-- **URL** - http://stage.fe.october.sdny.in/
-- **CMS** - http://stage.october.sdny.in/admin
+- **URL** - 
+- **CMS** - 
 
 ### Production [`master`](../../tree/master)
 
-- **URL** - https://oct.co/
+- **URL** - 
 - **CMS** -
 
 ### Dependencies
