@@ -1,0 +1,83 @@
+@import 'base/media-queries';
+
+.root {
+	/*width: 19.3rem;*/
+	height: 100%;
+	padding-left: 13px;
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	cursor: pointer;
+
+	@media (--mq-phablet-down) {
+		width: 94%;
+		padding-left: 15px;
+		text-align: left;
+		margin: 0 auto;
+	}
+}
+
+/*.root:hover .button-background {
+	animation-name: slideInLeft;
+	animation-duration: 400ms;
+	animation-fill-mode: both;
+}*/
+
+.button-link {
+	text-decoration: none;
+}
+
+.button-label {
+	position: relative;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	color: $titleBlack;
+	line-height: 3.4rem;
+	font-family: Akkurat Bold;
+
+	@media (--mq-phablet-down) {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+}
+
+.button-background {
+	position: absolute;
+	top: 35%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #f8e81c;
+}
+
+.arrow-down {
+  display: inline;
+	position: absolute;
+  width: 0;
+  height: 0;
+	top: 36%;
+	right: 2.3rem;
+
+	transition: transform 0.3s ease-in-out;
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid $titleBlack;
+}
+
+.arrow-down-active {
+	composes: arrow-down;
+	transform: rotate(180deg);
+}
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,4 @@
+/*colors*/
+
+.bodyColor      { color: $bodyColor; }
+.background     { background-color: $backgroundColor; }

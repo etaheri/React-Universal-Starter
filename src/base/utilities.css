@@ -1,0 +1,10 @@
+@import 'base/media-queries';
+
+.underline {
+  text-decoration: underline;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}

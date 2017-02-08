@@ -1,0 +1,97 @@
+@import 'base/media-queries';
+
+.root {
+  position: absolute;
+  width: 17rem;
+	height: 12.6rem;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+	overflow: hidden;
+  cursor: pointer;
+
+	@media (--mq-phablet-down) {
+    width: 11.9rem;
+  	height: 8.4rem;
+	}
+}
+
+.root:hover .button-background {
+	animation-name: slideUp;
+	animation-duration: 600ms;
+	animation-fill-mode: both;
+	/*animation-iteration-count: 1;*/
+}
+
+.button-play {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+  left: 50%;
+  z-index: 2;
+
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-left: 47px solid white;
+
+  transform: translate(-50%, 62%);
+
+	@media (--mq-phablet-down) {
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 33px solid white;
+
+    transform: translate(-50%, 46%);
+	}
+}
+
+.button-background {
+	position: absolute;
+  height: 100%;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #f8e81c;
+
+  /*transition: transform 0.8s;*/
+
+	animation-name: slideDown;
+  /*animation-duration: 1800ms;*/
+	animation-duration: 600ms;
+  animation-fill-mode: both;
+  /*animation-direction: alternate;
+	animation-iteration-count: infinite;*/
+}
+
+/*@keyframes colorSwap {
+  0% {
+    background: #f8e81c;
+  }
+  100% {
+    background: $accentPink;
+  }
+}*/
+
+@keyframes slideDown {
+  from {
+    transform: translate3d(0, -50%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}

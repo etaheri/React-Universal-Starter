@@ -1,0 +1,123 @@
+@import 'base/media-queries';
+
+.burger-container {
+	position: relative;
+	width: $menuWidth;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+	@media (--mq-desktop-down) {
+		width: $menuWidthTablet;
+	}
+
+	@media (--mq-tablet-down) {
+		position: relative;
+		top: 0;
+		width: auto;
+	}
+}
+
+.burger-container:hover {
+	opacity: 0.8;
+}
+
+.burger {
+	position: relative;
+	width: 4.6rem;
+	height: 2.3rem;
+	margin: 0 auto;
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	display: block;
+	transition: all 375ms ease-out;
+	pointer-events: all;
+	cursor: pointer;
+	transform: scale(.95) translate3d(0,0,0);
+
+	@media (--mq-tablet-down) {
+		pointer-events: inherit;
+		width: 3.8rem;
+		height: 1.8rem;
+	}
+}
+
+.burger-white {
+	composes: burger;
+}
+
+.burger-white .burger-inner {
+	background-color: white;
+}
+
+.burger:focus {
+	outline:0;
+}
+
+.burger-inner {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	left: 0;
+	background: $titleBlack;
+	transform-origin: 100% 50%;
+	will-change: transform;
+	transition: all 250ms ease-in-out;
+	margin-top: -1px;
+	top: 50%;
+}
+
+.burger-inner-top {
+	composes: burger-inner;
+	top: 0;
+	margin-top: 0px;
+}
+
+.burger-inner-bottom {
+	composes: burger-inner;
+	bottom: 0;
+	top: auto;
+	margin-top: 0px;
+}
+
+.burger-active {
+	composes: burger;
+	transform: scale(.95);
+}
+
+.burger-white-active {
+	composes: burger;
+	transform: scale(.95);
+
+	@media (--mq-tablet-down) {
+		transform: scale(.65);
+	}
+
+}
+
+.burger-white-active .burger-inner {
+	background-color: white;
+}
+
+.burger-hidden {
+	composes: burger;
+	pointer-events: none;
+	transform: scale(.95) translate3d(0,-5.7rem,0);
+	opacity: 0;
+	transition: all 375ms ease-out;
+}
+
+.burger-inner-active {
+	opacity: 0;
+}
+
+.burger-inner-top-active {
+	composes: burger-inner-top;
+	transform: translate3d(-4px, -6px, 0) rotateZ(-45deg);
+}
+
+.burger-inner-bottom-active {
+	composes: burger-inner-bottom;
+	transform: translate3d(-4px, 5px, 0) rotateZ(45deg);
+}

@@ -1,0 +1,91 @@
+@import 'base/media-queries';
+
+.root {
+	/*width: 19.3rem;*/
+	height: 3.2rem;
+	padding-left: 13px;
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	cursor: pointer;
+
+	/* is this needed? */
+	/*z-index: 10;*/
+
+	@media (--mq-phablet-down) {
+		width: 94%;
+		padding-left: 15px;
+		text-align: left;
+		margin: 0 auto;
+	}
+}
+
+.root:hover .button-background {
+	animation-name: slideUp;
+	animation-duration: 600ms;
+	animation-fill-mode: both;
+}
+
+.button-link {
+	text-decoration: none;
+}
+
+.button-label {
+	position: relative;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	color: $titleBlack;
+	line-height: 3.4rem;
+	font-family: Akkurat Bold;
+	padding-right: 1.3rem;
+	z-index: 1;
+	@media (--mq-phablet-down) {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+}
+
+.button-label-lg {
+	composes: button-label;
+
+	@media (--mq-phablet-down) {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+}
+
+.button-background {
+	position: absolute;
+	z-index: 0;
+	height: 100%;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #f8e81c;
+	animation-name: slideDown;
+	animation-duration: 600ms;
+  animation-fill-mode: both;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate3d(0, -18%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, -32%, 0);
+  }
+}

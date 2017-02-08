@@ -1,0 +1,23 @@
+/* Uses [cssnext](http://cssnext.io) with packages
+- [postcss-custom-media](https://github.com/postcss/postcss-custom-media)
+- [postcss-media-minmax](https://github.com/postcss/postcss-media-minmax)
+See `./frontend/base/vars/media-widths.js` from media width variables */
+
+/* media queries */
+@custom-media --mq-phone (width <= $bp-mobile);
+@custom-media --mq-phablet-down (width <= $bp-phablet);
+@custom-media --mq-phablet (width > $bp-mobile) and (width <= $bp-phablet);
+@custom-media --mq-phablet-down-landscape (width < $bp-tablet-h) and (orientation: landscape);
+@custom-media --mq-phablet-landscape (width > $bp-mobile) and (width < $bp-tablet-h) and (orientation: landscape);
+@custom-media --mq-tablet-down-landscape (width <= $bp-tablet-h) and (orientation: landscape);
+@custom-media --mq-tablet-down (width <= $bp-tablet);
+@custom-media --mq-tablet (width <= $bp-tablet-h) and (width > $bp-phablet);
+@custom-media --mq-tablet-up (width > $bp-tablet-h);
+@custom-media --mq-desktop (width >= $bp-desktop);
+@custom-media --mq-desktop-down (width < $bp-desktop);
+@custom-media --mq-desktop-m (width >= $bp-desktop-m);
+@custom-media --mq-desktop-l (width >= $bp-desktop-l);
+@custom-media --mq-short-screen (height <= $bp-short) and (width > $bp-tablet);
+@custom-media --mq-short-screen-desktop (height <= $bp-tablet) and (width > $bp-desktop);
+
+/* usage example: @media (--mq-phone) { ... } */

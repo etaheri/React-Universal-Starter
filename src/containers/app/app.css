@@ -1,0 +1,40 @@
+/*@import 'base/media-queries';*/
+
+.app {
+	padding: 0;
+	width: 100%;
+	max-width: 1800px;
+	margin: 0 auto;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*.app-content {
+	min-height: calc(100vh - 550px);
+}*/
+
+.enter {
+	opacity: 0.01;
+}
+.enter-active {
+	opacity: 1;
+	transition: opacity 300ms ease-in;
+}
+
+.leave {
+	opacity: 1;
+}
+
+.leave-active {
+	opacity: 0.01;
+	transition: opacity 300ms ease-out;
+}
+
+.appear {
+	opacity: 0.01;
+}
+
+.appear-active {
+	opacity: 1;
+	transition: opacity 300ms ease-in;
+}

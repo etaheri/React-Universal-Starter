@@ -1,0 +1,36 @@
+@import 'base/color';
+@import 'media-queries';
+
+/*@font-face {
+    font-family: "Akkurat Light";
+    src:url("/fonts/akkurat-light.eot");
+    src:url("/fonts/akkurat-light.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/akkurat-light.woff2") format("woff2"),
+        url("/fonts/akkurat-light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+
+html {
+	line-height: 1.5;
+	/*font-family: "Akkurat", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-weight: normal;
+	font-size: 10px;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	/*font-family: "RomanaT Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-weight: normal;
+}
+
+h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	/*font-family: "RomanaT", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
