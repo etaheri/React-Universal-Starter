@@ -6,6 +6,7 @@ import Root from './containers/root/root';
 import rootSaga from './containers/app/sagas';
 import { fromJS } from 'immutable';
 import FastClick from 'fastclick';
+import { AppContainer } from 'react-hot-loader'
 
 import configureStore from './store';
 import getRoutes from './routes';
@@ -40,9 +41,24 @@ async function renderClient() {
 	store.runSaga(rootSaga);
 
 	ReactDOM.render(
-		<Root store={store} history={history} routes={getRoutes(store)}/>,
+		<AppContainer>
+			<Root store={store} history={history} routes={getRoutes(store)}/>
+		</AppContainer>,
 	  appEl
 	);
+
+	// Hot Module Replacement API
+	if (module.hot) {
+	  module.hot.accept('./containers/root/root', () => {
+	    const NextRoot = require('./containers/root/root').default;
+	    ReactDOM.render(
+	      <AppContainer>
+	        <NextRoot/>
+	      </AppContainer>,
+	      document.getElementById('root')
+	    );
+	  });
+	}
 
 	// Remove click delays on browsers with touch
 	FastClick.attach(document.body);

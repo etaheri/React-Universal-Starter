@@ -49,9 +49,8 @@ module.exports = {
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000', // WebpackDevServer host and port
-    'webpack/hot/only-dev-server',
-    // require.resolve('react-dev-utils/webpackHotDevClient'),
+
+    require.resolve('react-dev-utils/webpackHotDevClient'),
 
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
@@ -108,17 +107,15 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
-        loaders: ['react-hot-loader/webpack', 'babel']
-        // query: {
-
-          // This is a feature of `babel-loader` for webpack (not Babel itself).
-          // It enables caching results in ./node_modules/.cache/react-scripts/
-          // directory for faster rebuilds. We use findCacheDir() because of:
-          // https://github.com/facebookincubator/create-react-app/issues/483
-        //   cacheDirectory: findCacheDir({
-        //     name: 'react-scripts'
-        //   })
-        // }
+        loader: 'babel',
+        query: {
+          cacheDirectory: findCacheDir({
+            name: 'react-scripts'
+          }),
+          plugins: [
+            'react-hot-loader/babel'
+          ]
+        }
       },
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -128,7 +125,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css?modules=true&importLoaders=1!postcss'
+        loader: 'style-loader!css-loader?localIdentName=[name]__[local].[hash:base64:5]&modules'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.

@@ -12,8 +12,8 @@ export default class Root extends Component {
       <Provider store={store}>
         <div>
             <Helmet
-                defaultTitle="October"
-                titleTemplate="%s - October"
+                defaultTitle="Universal"
+                titleTemplate="%s - Universal"
             />
           {type === 'server'
             ? <RouterContext {...renderProps} type={type} />

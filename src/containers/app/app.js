@@ -39,7 +39,7 @@ class App extends Component {
 		}
 		return (
 			<div className={styles.app}>
-				<h1>{data.get('name')} - App Containers</h1>
+				<h1>{data.get('name')} - App Container</h1>
 				<UI />
 				<div className={styles['app-content']}>
 							{ children }

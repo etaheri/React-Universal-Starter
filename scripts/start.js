@@ -167,12 +167,6 @@ function addMiddleware(devServer) {
     );
   }
 
-  devServer.use(require('webpack-dev-middleware')(compiler, {
-    publicPath: config.output.publicPath
-  }));
-
-  devServer.use(require('webpack-hot-middleware')(compiler))
-  
   // Finally, by now we have certainly resolved the URL.
   // It may be /index.html, so let the dev server try serving it again.
   devServer.use(devServer.middleware);
@@ -219,6 +213,14 @@ function runDevServer(host, port, protocol) {
     https: protocol === "https",
     host: host
   });
+
+  // devServer.use(require('webpack-dev-middleware')(compiler, {
+  //   publicPath: config.output.publicPath,
+  //   noInfo: true,
+  //   stats: { colors: true },
+  // }));
+  //
+  // devServer.use(require('webpack-hot-middleware')(compiler))
 
   // Our custom middleware proxies requests to /index.html or a remote API.
   addMiddleware(devServer);
